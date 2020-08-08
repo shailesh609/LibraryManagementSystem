@@ -91,7 +91,7 @@ function update(){
 		             //      alert("Hello student -> " + userName + " " + password);
 		  xhr = new XMLHttpRequest();
      	var url = "http://localhost:9090/LibraryManagementSystem/myApp/login/userlogin";
-		xhr.open("POST", url);
+		xhr.open("POST", url, true);
 		xhr.setRequestHeader("Content-type", "application/json");
 		xhr.onreadystatechange =  function () { 
 		    if ( this.readyState == 4 && this.status == 200) {
@@ -116,4 +116,21 @@ function update(){
 		xhr.send(data); 
 		
 	}
+	
+	function getUserData(){
+		myStorage = window.localStorage;
+		var userId = localStorage.getItem('userId');
+		//alert("This is user with id " + userId);
+		var xhttp = new XMLHttpRequest();
+		xhttp.onreadystatechange = function() {
+			if (this.readyState == 4 && this.status == 200) {
+				var result = this.responseText;
+				var obj = JSON.parse(result);
+				document.getElementById("demo").innerHTML = obj['name'] + "  " + obj['rollNo'];
+			}
+		};
+		xhttp.open("GET", "http://localhost:9090/FirstProject/myApp/user/getInfo/" + userId, true);
+		xhttp.send();
+	}
+	
 	
