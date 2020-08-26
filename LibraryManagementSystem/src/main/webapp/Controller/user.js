@@ -106,9 +106,9 @@ function update(){
 		    	window.location.href = "dashboard.html";
 		    
 		    		 }
-		    else{
+		    else if(this.status != 200){
 		    	alert("Login failed");
-		    	//window.location.href = "index.html";
+		    	window.location.href = "index.html";
 		    }
 		   
 		}

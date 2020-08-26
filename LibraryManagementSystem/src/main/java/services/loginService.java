@@ -42,7 +42,7 @@ public class loginService {
 			String passWord = jo.getString("password");
 			
 			// Check if user exits
-			User user = User.getUser(uName, passWord);
+			User user =  User.getUser(uName, passWord);
 			
 			if(user!=null) {
 				res = new LoginResponse(user.getId(), user.getStatus());

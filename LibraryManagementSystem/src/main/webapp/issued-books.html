@@ -17,9 +17,45 @@
     <link href="assets/css/style.css" rel="stylesheet" />
     <!-- GOOGLE FONT -->
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+    
+      <script type="text/javascript">
+function issuedbook(){
+	xhr = new XMLHttpRequest();
+	var url = "http://localhost:9090/LibraryManagementSystem/myApp/issuedbook/getInfo/SID002";
+	xhr.open("GET", url, true);
+	xhr.setRequestHeader("Content-type", "application/json");
+	xhr.onreadystatechange = function () { 
+	if (this.readyState == 4 && this.status == 200) {
+	var obj = JSON.parse(this.responseText);
+
+    for (i in obj.data) {
+	       a = document.getElementById('dataTables-example').insertRow();
+		   b = a.insertCell(0);
+           c = a.insertCell(1);
+           d = a.insertCell(2);
+		   e = a.insertCell(3);
+		   f = a.insertCell(4);
+           g = a.insertCell(5);
+		  
+          b.innerHTML = i;
+		  c.innerHTML = obj.data[i].Bookname + "<br>";
+	      d.innerHTML = obj.data[i].ISBNNumber  + "<br>";
+	      e.innerHTML = obj.data[i].Issuesdate  + "<br>" ;
+		  f.innerHTML = obj.data[i].Returndate  + "<br>";
+		  g.innerHTML = obj.data[i].Fine  + "<br>";
+	      
+		 
+		 
+     }
+	}
+	}
+
+	xhr.send(); 	
+	}
+	</script> 
 
 </head>
-<body>
+<body  onload="issuedbook()">
       <!------MENU SECTION START-->
 <div class="navbar navbar-inverse set-radius-zero" >
         <div class="container">
@@ -46,7 +82,7 @@
                 <div class="col-md-12">
                     <div class="navbar-collapse collapse ">
                         <ul id="menu-top" class="nav navbar-nav navbar-right">
-                            <li><a href="dashboard.html" class="menu-top-active">DASHBOARD</a></li>
+                            <li><a href="dashboard.html" >DASHBOARD</a></li>
                            
                           
    <li>
@@ -56,7 +92,7 @@
                                      <li role="presentation"><a role="menuitem" tabindex="-1" href="change-password.html">Change Password</a></li>
                                 </ul>
                             </li>
-                            <li><a href="issued-books.html">Issued Books</a></li>
+                            <li><a href="issued-books.html" class="menu-top-active" >Issued Books</a></li>
                           
 
                         </ul>
@@ -87,7 +123,7 @@
                                 <table class="table table-striped table-bordered table-hover" id="dataTables-example">
                                     <thead>
                                         <tr>
-                                            <th>#</th>
+                                            <th>S.No</th>
                                             <th>Book Name</th>
                                             <th>ISBN </th>
                                             <th>Issued Date</th>
@@ -95,24 +131,7 @@
                                             <th>Fine in(USD)</th>
                                         </tr>
                                     </thead>
-                                    <tbody>
-                                    
-                                        <tr class="odd gradeX">
-                                            <td class="center"></td>
-                                            <td class="center"></td>
-                                            <td class="center"></td>
-                                            <td class="center"></td>
-                                            <td class="center">
-                                            <span style="color:red">
-                                         
-                                                </span>
-                                            
-                                            </td>
-                                              <td class="center"> </td>
-                                         
-                                        </tr>
-                                    
-                                    </tbody>
+                                   
                                 </table>
                             </div>
                             

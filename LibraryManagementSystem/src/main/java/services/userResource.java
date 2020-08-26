@@ -38,6 +38,5 @@ public class userResource {
 		
 		return jo.toString();
 	}
-
-
 }
+

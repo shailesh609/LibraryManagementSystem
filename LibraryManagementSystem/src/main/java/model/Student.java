@@ -82,7 +82,7 @@ public class Student {
 		}
 		*/
 		try{  
-			Class.forName("com.mysql.jdbc.Driver");  
+			Class.forName("com.mysql.cj.jdbc.Driver");  
 			Connection con= DriverManager.getConnection("jdbc:mysql://localhost:3306/shailesh","root","root");
 			Statement stmt=con.createStatement();
 			ResultSet rs=stmt.executeQuery("select * from tblstudents");
