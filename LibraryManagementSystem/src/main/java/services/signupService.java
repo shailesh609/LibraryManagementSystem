@@ -58,6 +58,7 @@ public class signupService {
 			signupUser user = signupUser.userSignup(Name,Email,passWord,mNumber);
 			
 			if(user==null) {
+			    signupUser.setUser(Name,Email,passWord,mNumber);
 				res = new signupResponse("Registration Success", 1);
 			}else {
 				res = new signupResponse("Registration Fail", -1);

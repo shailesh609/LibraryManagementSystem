@@ -24,7 +24,8 @@ public class User {
 				Statement stmt=con.createStatement();
 				ResultSet rs=stmt.executeQuery("select * from tblstudents");
 				while(rs.next()) { 
-				if(rs.getString("EmailId").equals(uName) &&  rs.getString("Password").equals(pw)) {
+				if(rs.getString(4).equals(uName) &&  rs.getString(6).equals(pw)) {
+				
 				
 				return new User(rs.getString("StudentId"),rs.getString("FullName"),rs.getInt("Status"));
 				

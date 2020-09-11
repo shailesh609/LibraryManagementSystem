@@ -91,7 +91,7 @@ function update(){
 		             //      alert("Hello student -> " + userName + " " + password);
 		  xhr = new XMLHttpRequest();
      	var url = "http://localhost:9090/LibraryManagementSystem/myApp/login/userlogin";
-		xhr.open("POST", url, true);
+		xhr.open("POST", url);
 		xhr.setRequestHeader("Content-type", "application/json");
 		xhr.onreadystatechange =  function () { 
 		    if ( this.readyState == 4 && this.status == 200) {

@@ -1,6 +1,6 @@
 package model;
 
-import java.util.ArrayList;
+
 import java.sql.*;
 import java.time.format.DateTimeFormatter;  
 import java.time.LocalDateTime;   
@@ -22,14 +22,7 @@ public class signupUser {
 	
 	public static signupUser userSignup(String Name,String Email,String passWord,String mNumber) {
 		
-/*	ArrayList<signupUser> users = getAllUser();
-	    for(signupUser user : users) {
-			if(user.getEmail().equals(Email) ) 
-				return user;
-	    }
-	    
-	    setUser( Name, Email, passWord, mNumber);
-	*/
+
 	    		try{  
 				Class.forName("com.mysql.cj.jdbc.Driver");  
 				Connection con= DriverManager.getConnection("jdbc:mysql://localhost:3306/shailesh","root","root");
@@ -40,46 +33,29 @@ public class signupUser {
 				
 			    return new signupUser(rs.getString(3),rs.getString(4),rs.getString(6),rs.getString(5));
 				}
+			}
+			
+				setUser( Name, Email, passWord, mNumber);
+				con.close();  
 				
-			
-				}
-			
-			       con.close();  
-				}catch(Exception e){ System.out.println(e);} 
+	    		}catch(Exception e){ System.out.println(e);} 
                 
-                //SetUser() is used to enter data into database
-                            
-                // setUser( Name, Email, passWord, mNumber);       
-                            
-			
-	    
+          
 	return null;
 	}
 	
-	static ArrayList<signupUser> userList = new ArrayList<signupUser>();
+
 	    
-/*	public static ArrayList<signupUser> getAllUser(){
-			
-	
-			signupUser user1 = new signupUser("s1", "123" , "Student","342422");
-			signupUser user2 = new signupUser("Student2", "S1234@gmail.com" , "Student","32342424");
-			signupUser user3 = new signupUser("Student3", "S12345@gmail.com" , "Student","233243");
-			signupUser user4 = new signupUser("Teacher1", "T123" , "Teacher","323422");
-			signupUser user5 = new signupUser("Admin1", "A123" , "Admin","232322");
-			
-			userList.add(user1);
-			userList.add(user2);
-			userList.add(user3);
-			userList.add(user4);
-			userList.add(user5);
-			
-			return userList;
-		}*/
+
 	    public static void setUser(String Name,String Email,String passWord,String mNumber){
+	    	try{  
+				Class.forName("com.mysql.cj.jdbc.Driver");  
+				Connection con= DriverManager.getConnection("jdbc:mysql://localhost:3306/shailesh","root","root");
+				Statement stmt=con.createStatement();
+				stmt.executeUpdate("insert into tblstudents value(password ='"+ passWord+"'	WHERE EmailId='"+Email+"');");
 	    	
-	    	signupUser user1 = new signupUser(Name, Email , passWord,mNumber);
-	    userList.add(user1);
-	    	
+	    	}catch(Exception e){ System.out.println(e);} 
+	  
 	    }
 	
 	    public static String userUpdate(String Name,String Email,String mNumber) {
