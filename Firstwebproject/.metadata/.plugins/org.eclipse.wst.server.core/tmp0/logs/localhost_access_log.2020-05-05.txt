@@ -1,9 +1,0 @@
-127.0.0.1 - - [05/May/2020:21:09:22 +0530] "GET / HTTP/1.1" 404 1074
-0:0:0:0:0:0:0:1 - - [05/May/2020:21:09:23 +0530] "GET /FirstProject/ HTTP/1.1" 200 2578
-0:0:0:0:0:0:0:1 - - [05/May/2020:21:09:24 +0530] "GET /favicon.ico HTTP/1.1" 404 1085
-0:0:0:0:0:0:0:1 - - [05/May/2020:21:09:29 +0530] "POST /FirstProject/ HTTP/1.1" 200 2578
-0:0:0:0:0:0:0:1 - - [05/May/2020:21:09:29 +0530] "POST /FirstProject/myApp/login/userlogin HTTP/1.1" 200 40
-0:0:0:0:0:0:0:1 - - [05/May/2020:21:09:42 +0530] "POST /FirstProject/myApp/login/userlogin HTTP/1.1" 200 40
-0:0:0:0:0:0:0:1 - - [05/May/2020:21:09:42 +0530] "POST /FirstProject/ HTTP/1.1" 200 2578
-0:0:0:0:0:0:0:1 - - [05/May/2020:21:09:42 +0530] "GET /FirstProject/view/student.html HTTP/1.1" 200 1440
-0:0:0:0:0:0:0:1 - - [05/May/2020:21:09:54 +0530] "GET /FirstProject/view/book.html HTTP/1.1" 200 551
