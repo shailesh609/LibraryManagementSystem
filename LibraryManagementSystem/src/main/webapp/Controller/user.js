@@ -87,8 +87,8 @@ function update(){
 //This function is  used for userlogin
 	function login(){
 	                   //   var userName = document.forms["myForm"]["username"].value;
-                 	  //   var password = document.forms["myForm"]["password"].value;
-		             //      alert("Hello student -> " + userName + " " + password);
+                 	  //    var password = document.forms["myForm"]["password"].value;
+		             //     alert("Hello student -> " + userName + " " + password);
 		  xhr = new XMLHttpRequest();
      	var url = "http://localhost:9090/LibraryManagementSystem/myApp/login/userlogin";
 		xhr.open("POST", url);
@@ -133,4 +133,35 @@ function update(){
 		xhttp.send();
 	}
 	
+//Function for admin login
+	function adminlogin(){
+        //   var userName = document.forms["myForm"]["username"].value;
+  	  //    var password = document.forms["myForm"]["password"].value;
+      //     alert("Hello student -> " + userName + " " + password);
+xhr = new XMLHttpRequest();
+var url = "http://localhost:9090/LibraryManagementSystem/myApp/adminlogin/adminlogin";
+xhr.open("POST", url);
+xhr.setRequestHeader("Content-type", "application/json");
+xhr.onreadystatechange =  function () { 
+if ( this.readyState == 4 && this.status == 200) {
+	var json = JSON.parse(this.responseText);
+
+alert("Hello student -> " + json.userId + " " + json.Status);
 	
+	myStorage = window.localStorage;
+	
+	localStorage.setItem('userId', json.userId);
+	
+	window.location.href = "admin/dashboard.html";
+
+		 }
+else if(this.status != 200){
+	alert("Login failed");
+	window.location.href = "index.html";
+}
+
+}
+var data = JSON.stringify({"userName":document.forms["myForm"]["username"].value, "password":document.forms["myForm"]["password"].value});
+xhr.send(data); 
+
+}	 

@@ -15,6 +15,9 @@
     <link href="assets/css/style.css" rel="stylesheet" />
     <!-- GOOGLE FONT -->
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+        <!-- USER SCRIPT -->
+   <script type="text/javascript" src="Controller/user.js"></script> 
+    
 
 </head>
 <body>
@@ -71,7 +74,7 @@
  LOGIN FORM
 </div>
 <div class="panel-body">
-<form role="form" method="post" name="myForm" onsubmit="login()">
+<form role="form" method="post" name="myForm" onsubmit="adminlogin()">
 
 <div class="form-group">
 <label>Enter Username</label>
@@ -112,37 +115,6 @@
     <script src="assets/js/bootstrap.js"></script>
       <!-- CUSTOM SCRIPTS  -->
     <script src="assets/js/custom.js"></script>
-
-    <script type=text/javascript >
-
-/* 	function login(){
-	                  //    var userName = document.forms["myForm"]["username"].value;
-                 	 //	    var password = document.forms["myForm"]["password"].value;
-		            //      alert("Hello student -> " + userName + " " + password);
-		  xhr = new XMLHttpRequest();
-		var url = "http://localhost:9090/LibraryManagementSystem/myApp/login/userlogin";
-		xhr.open("POST", url, true);
-		xhr.setRequestHeader("Content-type", "application/json");
-		xhr.onreadystatechange = function () { 
-		    if (this.readyState == 4 && this.status == 200) {
-		    	var json = JSON.parse(this.responseText);
-		    	alert("Hello student -> " + json.userId + " " + json.Status);
-		    	
-		    	myStorage = window.localStorage;
-		    	
-		    	localStorage.setItem('userId', json.userId);
-		    	
-		    	window.location.href = "admin/dashboard.html";
-		    	 
-		    	 
-		   }
-		   
-		}
-		var data = JSON.stringify({"userName":document.forms["myForm"]["username"].value, "password":document.forms["myForm"]["password"].value});
-		xhr.send(data); 
-	}	 */	
-</script>
-
 
 
 </body>

@@ -1,0 +1,7 @@
+127.0.0.1 - - [02/Jul/2020:11:54:10 +0530] "GET / HTTP/1.1" 404 1074
+0:0:0:0:0:0:0:1 - - [02/Jul/2020:11:54:11 +0530] "GET /FirstProject/ HTTP/1.1" 200 818
+0:0:0:0:0:0:0:1 - - [02/Jul/2020:11:54:14 +0530] "GET /FirstProject/login.html HTTP/1.1" 200 2627
+0:0:0:0:0:0:0:1 - - [02/Jul/2020:11:54:18 +0530] "POST /FirstProject/login.html HTTP/1.1" 200 2627
+0:0:0:0:0:0:0:1 - - [02/Jul/2020:11:54:19 +0530] "POST /FirstProject/myApp/login/userlogin HTTP/1.1" 200 40
+0:0:0:0:0:0:0:1 - - [02/Jul/2020:11:54:23 +0530] "POST /FirstProject/login.html HTTP/1.1" 200 2627
+0:0:0:0:0:0:0:1 - - [02/Jul/2020:11:54:23 +0530] "POST /FirstProject/myApp/login/userlogin HTTP/1.1" 200 40

@@ -25,7 +25,6 @@ public class loginService {
 		}
 	}
 	
-	
 	//http://localhost:9090/LibraryManagementSystem/myApp/login/userlogin
 	@POST
 	@Path("/userlogin")

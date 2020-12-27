@@ -84,6 +84,7 @@ public class Student {
 			if(rs.getString(2).equals(id) ) {
 			
 			return new Student(rs.getString(2),rs.getString(3),rs.getString(7),rs.getString(8),rs.getString(5),rs.getString(4),rs.getString(9));
+			
 			}
 		
 			}

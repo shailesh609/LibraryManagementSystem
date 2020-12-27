@@ -19,13 +19,13 @@ public class issuedBook {
 			@Produces(MediaType.APPLICATION_JSON)
 			public String getTrackInJSON(@PathParam("userId") String userId) {
 					
-				JSONObject jo = new JSONObject();
-				JSONArray array= Books.getIssuedbook(userId);
-			
-				try {
-				jo.put("data"  ,  array);
-				}catch(Exception e) {System.out.println(e);}
+			     JSONObject jo = new JSONObject();
 				
+				  try{  
+					  JSONArray data=Books.getIssuedbook(userId);
+					  jo.put("data"  ,   data);
+						}catch(Exception e) {System.out.println(e);}
+				  
 				return jo.toString();
 			}
 

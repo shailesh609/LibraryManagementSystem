@@ -1,0 +1,77 @@
+<!-- <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%> -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+  <title>Login page</title>
+
+<script>
+	function loadDoc() {
+		var xhttp = new XMLHttpRequest();
+		xhttp.onreadystatechange = function() {
+			if (this.readyState == 4 && this.status == 200) {
+				var result = this.responseText;
+				var obj = JSON.parse(result);
+				document.getElementById("demo").innerHTML = obj['Name'] + "  " + obj['RollNo'];
+			}
+		};
+		xhttp.open("GET", "http://localhost:9090/FirstProject/rest/myApi/getJson", true);
+		xhttp.send();
+	}
+		
+	function login(){
+		var userName = document.forms["myForm"]["username"].value;
+		var password = document.forms["myForm"]["password"].value;
+		xhr = new XMLHttpRequest();
+		var url = "http://localhost:9090/FirstProject/myApp/login/userlogin";
+		xhr.open("POST", url, true);
+		xhr.setRequestHeader("Content-type", "application/json");
+		xhr.onreadystatechange = function () { 
+		    if (this.readyState == 4 && this.status == 200) {
+		    	var json = JSON.parse(this.responseText);
+		    	//alert("Hello student -> " + json.userId + " " + json.role);
+		    	myStorage = window.localStorage;
+		    	localStorage.setItem('userId', json.userId);
+		    	window.location.href="view/student.html"; 
+		    } else{
+		    	// TODO:
+		    	// Login failed
+		    }
+		}
+		var data = JSON.stringify({"userName":userName, "password":password});
+		xhr.send(data);
+	}
+	
+	
+		
+</script>
+
+
+</head>
+ <head><title>Login Form
+</title>
+ <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>  
+<body style="background-color:#E6E6FA">
+<div class="col-sm-12" align="right">
+
+</div>
+<div class="container">
+<div class="rows" >
+<div class="col-sm-12">
+<h1 align="right">Enter the login details</h1>
+<form align="right"   method="post" onsubmit="login()" name="myForm">
+Username:<input type="text" placeholder="Enter Username" name="username" size="35"><br>
+<br>
+Password:<input type="password" placeholder="Enter Password" name="password" size="35"><br><br>
+<input  style="margin-right:48px" type="Submit" value="submit">
+<input  style="margin-right:48px" type="Reset" value="Reset">
+</form>
+<div id="demo">
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>
